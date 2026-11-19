@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador BFS x DFS</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>BFS x DFS em um labirinto</h1>
+    <p>Antes de iniciar, clique nas células para criar ou remover paredes.</p>
+  </header>
+
+  <section class="barra">
+    <div class="grupo">
+      <button id="btn-bfs" class="ativo">BFS (fila)</button>
+      <button id="btn-dfs">DFS (pilha)</button>
+    </div>
+    <div class="grupo">
+      <button data-cenario="labirinto">Labirinto</button>
+      <button data-cenario="comparativo">Pior caso (DFS)</button>
+      <button data-cenario="custom">Customizado</button>
+    </div>
+    <div class="grupo">
+      <button id="btn-play">Executar</button>
+      <button id="btn-step">Próximo passo</button>
+      <button id="btn-pause">Pausar</button>
+      <button id="btn-reset">Reiniciar</button>
+    </div>
+  </section>
+
+  <main>
+    <div id="grade"></div>
+
+    <aside>
+      <div class="painel">
+        <h2>Métricas</h2>
+        <p>Passo: <b id="m-passo">0</b> / <b id="m-total">0</b></p>
+        <p>Operações (vizinhos examinados): <b id="m-ops">0</b></p>
+        <p>Nós visitados: <b id="m-vis">0</b></p>
+        <p>Menor caminho achado: BFS <b id="r-bfs">-</b> | DFS <b id="r-dfs">-</b></p>
+      </div>
+
+      <div class="painel">
+        <h2 id="est-titulo">Fila (FIFO)</h2>
+        <p id="est-dica" class="dica"></p>
+        <div id="estrutura"></div>
+      </div>
+
+      <div class="painel">
+        <h2>O que está acontecendo</h2>
+        <ol id="log"></ol>
+      </div>
+
+      <div class="legenda">
+        <span><i class="c atual"></i>nó atual</span>
+        <span><i class="c fronteira"></i>na fila/pilha</span>
+        <span><i class="c visitado"></i>visitado</span>
+        <span><i class="c caminho"></i>caminho final</span>
+        <span><i class="c parede"></i>parede</span>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

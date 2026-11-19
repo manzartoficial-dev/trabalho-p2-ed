@@ -1,0 +1,49 @@
+:root {
+  --cel: 42px;
+  --fundo: #eef1f4;
+  --tinta: #1c2733;
+  --borda: #c9d1d9;
+  --bfs: #0f766e;
+  --dfs: #6d28d9;
+}
+* { box-sizing: border-box; }
+body { margin: 0; padding: 20px; background: var(--fundo); color: var(--tinta); font-family: "Segoe UI", system-ui, sans-serif; }
+h1 { margin: 0 0 4px; font-size: 1.6rem; }
+h2 { margin: 0 0 8px; font-size: 1rem; }
+header p { margin: 0 0 16px; color: #52606d; }
+
+.barra { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+.grupo { display: flex; gap: 6px; }
+button { padding: 8px 14px; border: 1px solid var(--borda); border-radius: 6px; background: #fff; color: var(--tinta); font: inherit; cursor: pointer; }
+button:hover { background: #e4e9ee; }
+button:focus-visible { outline: 3px solid #f59e0b; outline-offset: 1px; }
+button.ativo { color: #fff; border-color: transparent; background: var(--bfs); }
+#btn-dfs.ativo { background: var(--dfs); }
+
+main { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+#grade { display: grid; gap: 3px; padding: 10px; background: #fff; border: 1px solid var(--borda); border-radius: 8px; }
+.cel { width: var(--cel); height: var(--cel); border-radius: 4px; background: #f6f8fa; border: 1px solid #dde3e9; display: flex; align-items: center; justify-content: center; font-weight: 700; cursor: pointer; transition: background .15s; }
+.cel.marca { border: 2px solid var(--tinta); }
+.parede { background: #2b3745; border-color: #2b3745; }
+.fronteira { background: #fde68a; }
+.visitado { background: #bcd4e6; }
+.atual { background: #f97316; color: #fff; }
+.caminho { background: #22a55b; color: #fff; }
+
+aside { width: 380px; max-width: 100%; display: flex; flex-direction: column; gap: 12px; }
+.painel { background: #fff; border: 1px solid var(--borda); border-radius: 8px; padding: 12px 14px; }
+.painel p { margin: 4px 0; }
+.dica { color: #52606d; font-size: .85rem; }
+#estrutura { display: flex; flex-wrap: wrap; gap: 4px; min-height: 30px; }
+.chip { padding: 2px 8px; border-radius: 4px; background: #fde68a; font-size: .85rem; }
+.chip.chave { background: #f97316; color: #fff; }
+#log { margin: 0; padding-left: 20px; max-height: 190px; overflow-y: auto; font-size: .9rem; }
+#log li { margin-bottom: 4px; }
+#log li:first-child { font-weight: 700; }
+
+.legenda { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .85rem; }
+.c { display: inline-block; width: 14px; height: 14px; margin-right: 5px; border-radius: 3px; vertical-align: -2px; }
+.c.parede { background: #2b3745; }
+
+@media (prefers-reduced-motion: reduce) { .cel { transition: none; } }
+@media (max-width: 600px) { :root { --cel: 30px; } }
